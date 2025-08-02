@@ -138,6 +138,19 @@ app.use((err, req, res, next) =>{
 // });
 
 
+app.use((err, req, res, next) => {
+  let {statusCode = 500, message = "something went wrong!"} = err;
+  res.status(statusCode).render("error.ejs", {message});
+});
+
+// ✅ Add this just before app.listen
+app.get("/", (req, res) => {
+  res.render("home"); // OR res.send("Welcome!")
+});
+
+
+
+
 
 app.listen(8080, () => {
   console.log("server is listening to port 8080");
