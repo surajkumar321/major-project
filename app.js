@@ -145,7 +145,7 @@ app.use((err, req, res, next) => {
 
 // ✅ Add this just before app.listen
 app.get("/", (req, res) => {
-  res.render("home"); // OR res.send("Welcome!")
+  res.render("index"); // OR res.send("Welcome!")
 });
 
 
