@@ -25,16 +25,6 @@ const userRouter = require("./routes/user.js");
 
 const dburl = process.env.ATLASDB_URL;
 
-
-// // new code add
-// app.use((req, res, next) => {
-//   res.locals.MAP_TOKEN = process.env.MAP_TOKEN;
-//   next();
-// });
-
-
-
-
 main()
   .then(() => {
     console.log("connected to DB");
@@ -81,10 +71,6 @@ const sessionOptions = {
 };
 
 
-// app.get("/", (req, res) => {
-//   res.send("Hi, I am root");
-// });
-
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -109,17 +95,6 @@ app.use((req, res, next) =>{
   next();
 })
 
-
-// app.get("/demouser", async (req, res) =>{
-//   let fakeUser = new User({
-//     email: "student@gmail.com",
-//     username: "delta-student",
-//   });
-//   let registeredUser = await User.register(fakeUser, "helloworld");
-//   res.send(registeredUser);
-// });
-
-
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/",userRouter);
@@ -130,12 +105,6 @@ app.use((err, req, res, next) =>{
   // res.status(statusCode).send(message);
 });
 
-
-// // Global error handler
-// app.use((err, req, res, next) => {
-//   console.log("🔥 ERROR:", err);
-//   res.status(500).render("error.ejs", { err });
-// });
 
 app.listen(8080, () => {
   console.log("server is listening to port 8080");

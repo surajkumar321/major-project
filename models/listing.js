@@ -26,21 +26,6 @@ const listingSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-
-//   // 🌍 start geometry field for map
-// geometry: {
-//   type: {
-//     type: String, // "Point"
-//     enum: ["Point"],
-//     required: true,
-//   },
-//   coordinates: {
-//     type: [Number], // [longitude, latitude]
-//     required: true,
-//   },
-// },
- // 🌍 end geometry field for map
- 
 });
 
 listingSchema.post("findOneAndDelete", async (listing) => {
