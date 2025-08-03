@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
-require('dotenv').config();
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-const dbURL = process.env.MONGO_URL;
+// ✅ Use correct env variable name
+const dbURL = process.env.ATLASDB_URL;
 
-// ✅ Clean connection without deprecated options
 mongoose.connect(dbURL)
   .then(() => {
     console.log("✅ MongoDB connected successfully");
@@ -13,3 +13,4 @@ mongoose.connect(dbURL)
   });
 
 module.exports = mongoose;
+
